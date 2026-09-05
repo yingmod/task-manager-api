@@ -1,3 +1,34 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: task-manager-api
+
+  # Cấu hình H2 Database chạy trong RAM
+  datasource:
+    url: jdbc:h2:mem:taskdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # Cấu hình Hibernate / JPA
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update # Tự động tạo/cập nhật bảng trong DB từ class Java
+    show-sql: true     # In câu lệnh SQL ra terminal để dễ học và debug
+    properties:
+      hibernate:
+        format_sql: true # Định dạng SQL đẹp mắt khi in ra console
+
+  # Bật giao diện web H2 Console để xem dữ liệu
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# Cấu hình đường dẫn Swagger UI
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
