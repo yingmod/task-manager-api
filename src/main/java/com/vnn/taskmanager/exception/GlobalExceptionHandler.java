@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.vnn.taskmanager.controller")
 public class GlobalExceptionHandler {
 
     // 1. Bắt lỗi khi không tìm thấy tài nguyên (404 Not Found)
